@@ -4,14 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f25a36c0-8173-4fd8-b182-e2db3536dd32" name="Changes" comment="" />
+    <list default="true" id="f25a36c0-8173-4fd8-b182-e2db3536dd32" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/AdjacencyListGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/AdjacencyListGraph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/AdjacencyMatrixGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/AdjacencyMatrixGraph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/Graph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/GraphException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/GraphException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/Vertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/Vertex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/list/ListException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/list/ListException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/queue/QueueException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/queue/QueueException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/stack/StackException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/stack/StackException.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -21,17 +42,41 @@
     </option>
   </component>
   <component name="ProjectId" id="2QoIkQNqIVzsWmA2RD2TXeR0MDH" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="domain" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="Laboratory11" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="Laboratory11" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -42,5 +87,8 @@
       <updated>1686013649922</updated>
     </task>
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

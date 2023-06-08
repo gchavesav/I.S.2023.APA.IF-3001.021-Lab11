@@ -1,2 +1,7 @@
-package domain.queue;public class QueueException {
+package domain.queue;
+
+public class QueueException extends Exception{
+    public QueueException(String message) {
+        super(message);
+    }
 }
