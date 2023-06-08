@@ -52,6 +52,14 @@ public class AdjacencyMatrixGraph implements Graph{
 
     @Override
     public boolean containsVertex(Object element) throws GraphException, ListException {
+        if (isEmpty()) {
+            throw new GraphException("Adjacency Matrix Graph is Empty");
+        }
+        for (int i = 0; i < counter; i++) {
+            if (util.Utility.compare(vertexList[i].data, element)==0) {
+                return true;
+            }
+        }
         return false;
     }
 
