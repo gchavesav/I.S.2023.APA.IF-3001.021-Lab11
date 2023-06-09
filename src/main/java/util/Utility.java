@@ -112,7 +112,7 @@ public class Utility {
     public static char getAlphabet(){
         char alfabeto[] = new char[26] ;
         int cont=0;
-        for(char i='a';i<='z';i++)
+        for(char i='A';i<='Z';i++)
             alfabeto[cont++] = i;
         return alfabeto[(int) (Math.random() * 25 - 1)];
     }
