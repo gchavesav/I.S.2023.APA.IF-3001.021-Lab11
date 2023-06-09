@@ -58,15 +58,16 @@ public class AdjListGraphController {
 
             if (1==0){}
             for (int j = 0; j < noVertexs; j++) {
-                if (adj.containsEdge(adj.getVertex(i).data, adj.getVertex(j).data)){
-                    double angleTo = j * angleStep;
-                    double xTo = centerX + radius * Math.cos(angleTo);
-                    double yTo = centerY + radius * Math.sin(angleTo);
+                if(j <= i){
+                    if (adj.containsEdge(adj.getVertex(i).data, adj.getVertex(j).data)){
+                        double angleTo = j * angleStep;
+                        double xTo = centerX + radius * Math.cos(angleTo);
+                        double yTo = centerY + radius * Math.sin(angleTo);
 
-                    Line line = new Line(x, y, xTo+10, yTo+10);
-                    graphPane.getChildren().add(line);
+                        Line line = new Line(x, y, xTo+10, yTo+10);
+                        graphPane.getChildren().add(line);
+                    }
                 }
-
             }
 
             Circle vertex = new Circle(x, y, 25);
