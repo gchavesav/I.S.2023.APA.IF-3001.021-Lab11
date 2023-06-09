@@ -36,7 +36,7 @@ public class AdjListGraphController {
     @FXML
     public void initialize() throws GraphException, ListException {
         this.alert = util.FXUtility.alert("", "");
-        randomize(counter);
+        fill(counter);
         drawAdjListGraph();
     }
 
@@ -57,6 +57,13 @@ public class AdjListGraphController {
             double y = centerY + radius * Math.sin(angle);
 
             for (int j = 0; j < noVertexs; j++) {
+                if (adj.containsVertex(adj.getVertex(i))&&adj.containsVertex(adj.getVertex(j))){
+                    System.out.println( i+" "+j);
+                    if (adj.containsEdge(adj.getVertex(i), adj.getVertex(j))){
+
+                    }
+                }
+
                 double angleTo = j * angleStep;
                 double xTo = centerX + radius * Math.cos(angleTo);
                 double yTo = centerY + radius * Math.sin(angleTo);
@@ -79,7 +86,7 @@ public class AdjListGraphController {
         }
     }
 
-    private void randomize(int n) throws GraphException, ListException {
+    private void fill(int n) throws GraphException, ListException {
         adj = new AdjacencyListGraph(n);
         for (int i = 0; i < n; i++) {
             char a = util.Utility.getAlphabet();
@@ -102,44 +109,17 @@ public class AdjListGraphController {
                 //System.out.println(vertexIndex+", "+vertexIndex2); //prueba
             }
             if (!adj.containsEdge(adj.getVertex(i).data,adj.getVertex(vertexIndex).data)) {
-                adj.addEdgeAndWeight(adj.getVertex(i).data, adj.getVertex(i).data, peso);
+                adj.addEdgeAndWeight(adj.getVertex(i).data, adj.getVertex(vertexIndex).data, peso);
                 //System.out.println(vertexIndex+", "+vertexIndex2); //prueba
             }
-        }
-    }
-
-    private void drawAdjList(int k, double x, double y, double levelWidth) throws GraphException, ListException {
-        Vertex vertex = adj.getVertex(k);
-        if (vertex != null) {
-            // Dibujar las conexiones con los nodos hijos primero
-            if (vertex != null) {
-                double childX = x - levelWidth / 2;
-                double childY = y + 60;
-                drawAdjList(k+1, childX, childY, levelWidth / 2);
-
-                // Dibujar una línea desde el nodo actual al nodo hijo izquierdo
-                Line line = new Line(x, y, childX+10, childY-10);
-                graphPane.getChildren().add(line);
-            }
-
-            // Dibujar el nodo actual como un círculo después de las líneas
-            Circle circle = new Circle(x, y, 15);
-            circle.setFill(Color.LIGHTGREEN); // Cambiar el color a verde claro
-            graphPane.getChildren().add(circle);
-
-            // Mostrar el valor del nodo
-            Text text = new Text(String.valueOf(vertex.data));
-            text.setX(x - 5);
-            text.setY(y + 5);
-            graphPane.getChildren().add(text);
         }
     }
 
     @FXML
     void bfsTourOnAction(ActionEvent event) {
         try {
-            String result = "ADJACENCY LIST GRAPH..."+
-                    "\n Recorrido BFS: \n"+adj.bfs();
+            String result = "ADJACENCY LIST GRAPH...\n"+
+                    "Recorrido BFS: \n"+adj.bfs();
             listGraphTextArea.setText(result);
         } catch (GraphException e) {
             throw new RuntimeException(e);
@@ -195,8 +175,8 @@ public class AdjListGraphController {
     @FXML
     void dfsTourOnAction(ActionEvent event) {
         try {
-            String result = "ADJACENCY LIST GRAPH..."+
-                    "\n Recorrido DFS: \n"+adj.dfs();
+            String result = "ADJACENCY LIST GRAPH...\n "+
+                    "Recorrido DFS: \n"+adj.dfs();
             listGraphTextArea.setText(result);
         } catch (GraphException e) {
             throw new RuntimeException(e);
@@ -210,7 +190,7 @@ public class AdjListGraphController {
     @javafx.fxml.FXML
     void randomizeOnAction(ActionEvent event) {
         try {
-            randomize(counter);
+            fill(counter);
             drawAdjListGraph();
         } catch (GraphException e) {
             throw new RuntimeException(e);
@@ -221,8 +201,7 @@ public class AdjListGraphController {
 
     @FXML
     void toStringOnAction(ActionEvent event) {
-        String result = "ADJACENCY LIST GRAPH CONTENT..."+
-        "\n "+adj.toString();
+        String result = "ADJACENCY LIST GRAPH CONTENT...\n "+adj.toString();
         listGraphTextArea.setText(result);
     }
 }
