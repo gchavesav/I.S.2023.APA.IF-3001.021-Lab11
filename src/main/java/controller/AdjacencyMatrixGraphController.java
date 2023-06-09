@@ -5,7 +5,9 @@ import domain.GraphException;
 import domain.list.ListException;
 import javafx.event.ActionEvent;
 import javafx.scene.Group;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -19,6 +21,10 @@ public class AdjacencyMatrixGraphController
     private Pane lienzo;
     @javafx.fxml.FXML
     private Group graf;
+
+    private Alert alert;
+
+    private TextInputDialog dialog1, dialog2;
 
     private AdjacencyMatrixGraph matrixGraph;
 
@@ -113,6 +119,20 @@ public class AdjacencyMatrixGraphController
 
 
     public void containsVertexOnAction(ActionEvent actionEvent) {
+        dialog1 = util.FXUtility.dialog("Vertex Contains","Contains: ");
+        dialog1.showAndWait();
+        int value = Integer.parseInt(dialog1.getResult());
+        this.alert=util.FXUtility.alert("Vertex Contains","Contains: ");
+        alert.setAlertType(Alert.AlertType.INFORMATION);
+        try {
+            alert.setContentText(String.valueOf(matrixGraph.containsVertex(value)));
+            alert.showAndWait();
+        } catch (GraphException e) {
+            throw new RuntimeException(e);
+        } catch (ListException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     public void dfsTourOnAction(ActionEvent actionEvent) {
@@ -122,6 +142,25 @@ public class AdjacencyMatrixGraphController
     }
 
     public void containsEdgeOnAction(ActionEvent actionEvent) {
+        dialog1 = util.FXUtility.dialog("Edge Contains","Contains: ");
+        dialog1.showAndWait();
+        int value1 = Integer.parseInt(dialog1.getResult());
+        this.alert=util.FXUtility.alert("Edge Contains","Contains: ");
+        alert.setAlertType(Alert.AlertType.INFORMATION);
 
+        dialog2 = util.FXUtility.dialog("Edge Contains","Contains: ");
+        dialog2.showAndWait();
+        int value2 = Integer.parseInt(dialog2.getResult());
+        this.alert=util.FXUtility.alert("Edge Contains","Contains: ");
+        alert.setAlertType(Alert.AlertType.INFORMATION);
+
+        try {
+            alert.setContentText(String.valueOf(matrixGraph.containsEdge(value1, value2)));
+            alert.showAndWait();
+        } catch (GraphException e) {
+            throw new RuntimeException(e);
+        } catch (ListException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
