@@ -27,6 +27,7 @@ public class AdjListOperationsController
 
     @FXML
     private TextArea dataTextArea;
+    private Alert alert;
 
     AdjacencyListGraph adjacencyListGraph;
     List<String> listOfEdges = new ArrayList<>();
@@ -53,7 +54,9 @@ public class AdjListOperationsController
 
     @FXML
     void clearOnAction(ActionEvent event) {
-
+        this.base.getChildren().clear();
+        this.dataTextArea.clear();
+        this.adjacencyListGraph.clear();
     }
 
     @FXML
@@ -63,8 +66,26 @@ public class AdjListOperationsController
     }
 
     @FXML
-    void removeENWOnAction(ActionEvent event) {
+    void removeENWOnAction(ActionEvent event) throws GraphException, ListException {
 
+        if (!adjacencyListGraph.isEmpty()&&!listOfEdges.isEmpty()){
+            char element1 = util.Utility.getAlphabet();
+            char element2 = util.Utility.getAlphabet();
+            String dataList = element1 + Character.toString(element2);
+            while(!listOfEdges.contains(dataList)){
+                element1 = util.Utility.getAlphabet();
+                element2 = util.Utility.getAlphabet();
+                dataList = element1 + Character.toString(element2);
+            }
+            adjacencyListGraph.removeEdge(element1, element2);
+            listOfEdges.remove(dataList);
+            dataTextArea.setText(adjacencyListGraph.toString());
+            drawGraph();
+        }else {
+            this.alert = util.FXUtility.alert("Error", "");
+            this.alert.setContentText("There's no Edges and Weights in the graph");
+            alert.showAndWait();
+        }
     }
 
     @FXML
@@ -74,13 +95,19 @@ public class AdjListOperationsController
 
     private void removeVertex() throws GraphException, ListException {
         char element = util.Utility.getAlphabet();
-        while (!adjacencyListGraph.containsVertex(element)){
-            element = util.Utility.getAlphabet();
+        if (!adjacencyListGraph.isEmpty()) {
+            while (!adjacencyListGraph.containsVertex(element)) {
+                element = util.Utility.getAlphabet();
+            }
+            removeEdgeFromList(element);
+            adjacencyListGraph.removeVertex(element);
+            dataTextArea.setText(adjacencyListGraph.toString());
+            drawGraph();
+        }else{
+            this.alert = util.FXUtility.alert("Error","Vertexes not founded");
+            this.alert.setContentText("There's no vertexes in the graph");
+            alert.showAndWait();
         }
-        removeEdgeFromList(element);
-        adjacencyListGraph.removeVertex(element);
-        dataTextArea.setText(adjacencyListGraph.toString());
-        drawGraph();
     }
 
     public void removeEdgeFromList(char c){
