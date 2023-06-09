@@ -1,7 +1,9 @@
 package controller;
 
 import domain.AdjacencyListGraph;
+import domain.AdjacencyMatrixGraph;
 import domain.GraphException;
+import domain.Vertex;
 import domain.list.ListException;
 import domain.queue.QueueException;
 import domain.stack.StackException;
@@ -44,7 +46,8 @@ public class AdjListGraphController {
         double radius = Math.min(centerX, centerY)-100;
 
         int noVertexs = adj.size();
-        double angleStep = (2 * Math.PI / noVertexs);
+        double angleStep = 2 * Math.PI / noVertexs;
+
         graphPane.getChildren().clear();
 
         // Dibujar las conexiones entre los vértices
@@ -53,20 +56,17 @@ public class AdjListGraphController {
             double x = centerX + radius * Math.cos(angle);
             double y = centerY + radius * Math.sin(angle);
 
+            if (1==0){}
             for (int j = 0; j < noVertexs; j++) {
-                if (adj.containsVertex(adj.getVertex(i))&&adj.containsVertex(adj.getVertex(j))){
-                    //System.out.println( i+" "+j);
-                    if (adj.containsEdge(adj.getVertex(i), adj.getVertex(j))){
+                if (adj.containsEdge(adj.getVertex(i).data, adj.getVertex(j).data)){
+                    double angleTo = j * angleStep;
+                    double xTo = centerX + radius * Math.cos(angleTo);
+                    double yTo = centerY + radius * Math.sin(angleTo);
 
-
-                    }
+                    Line line = new Line(x, y, xTo+10, yTo+10);
+                    graphPane.getChildren().add(line);
                 }
 
-                double angleTo = j * angleStep;
-                double xTo = centerX + radius * Math.cos(angleTo);
-                double yTo = centerY + radius * Math.sin(angleTo);
-                Line line = new Line(x, y, xTo, yTo);
-                graphPane.getChildren().add(line);
             }
 
             Circle vertex = new Circle(x, y, 25);
@@ -79,7 +79,6 @@ public class AdjListGraphController {
             vertexLabel.setY(y + vertexLabel.getLayoutBounds().getHeight() / 4);
 
             graphPane.getChildren().add(vertexLabel);
-
         }
     }
 
@@ -100,7 +99,7 @@ public class AdjListGraphController {
         for (int i = 0; i < n; i++) {
             int vertexIndex = util.Utility.random(9);
             int vertexIndex2 = util.Utility.random(9);
-            int peso = util.Utility.random(0,50);
+            int peso = util.Utility.random(99);
             if (!adj.containsEdge(adj.getVertex(vertexIndex2).data,adj.getVertex(vertexIndex).data)) {
                 adj.addEdgeAndWeight(adj.getVertex(vertexIndex2).data, adj.getVertex(vertexIndex).data, peso);
                 //System.out.println(vertexIndex+", "+vertexIndex2); //prueba
@@ -129,23 +128,20 @@ public class AdjListGraphController {
 
     @javafx.fxml.FXML
     void containsEdgeOnAction(ActionEvent event) {
-        interactive1 = util.FXUtility.dialog("Edge","Contains?: ");
+        interactive1 = util.FXUtility.dialog("Edge Contains","Contains: ");
         interactive1.showAndWait();
-
-        String s1 = String.valueOf(interactive1.getResult());
-        Character c1= s1.charAt(0);
-        this.alert=util.FXUtility.alert("Edge","Contains?: ");
+        int value1 = Integer.parseInt(interactive1.getResult());
+        this.alert=util.FXUtility.alert("Edge Contains","Contains: ");
         alert.setAlertType(Alert.AlertType.INFORMATION);
 
-        interactive2 = util.FXUtility.dialog("Edge","Contains?: ");
+        interactive2 = util.FXUtility.dialog("Edge Contains","Contains: ");
         interactive2.showAndWait();
-        String s2 = String.valueOf(interactive2.getResult());
-        Character c2= s2.charAt(0);
-        this.alert=util.FXUtility.alert("Edge","Is there an edge?: ");
+        int value2 = Integer.parseInt(interactive2.getResult());
+        this.alert=util.FXUtility.alert("Edge Contains","Contains: ");
         alert.setAlertType(Alert.AlertType.INFORMATION);
 
         try {
-            alert.setContentText(String.valueOf(adj.containsEdge(c1, c2)));
+            alert.setContentText(String.valueOf(adj.containsEdge(value1, value2)));
             alert.showAndWait();
         } catch (GraphException e) {
             throw new RuntimeException(e);
@@ -175,7 +171,7 @@ public class AdjListGraphController {
     @FXML
     void dfsTourOnAction(ActionEvent event) {
         try {
-            String result = "ADJACENCY LIST GRAPH...\n "+
+            String result = "ADJACENCY LIST GRAPH...\n"+
                     "Recorrido DFS: \n"+adj.dfs();
             listGraphTextArea.setText(result);
         } catch (GraphException e) {
@@ -201,7 +197,6 @@ public class AdjListGraphController {
 
     @FXML
     void toStringOnAction(ActionEvent event) {
-        String result = "ADJACENCY LIST GRAPH CONTENT...\n "+adj.toString();
-        listGraphTextArea.setText(result);
+        listGraphTextArea.setText(adj.toString());
     }
 }
