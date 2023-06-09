@@ -57,7 +57,6 @@ public class AdjListGraphController {
             double y = centerY + radius * Math.sin(angle);
 
             for (int j = 0; j < noVertexs; j++) {
-
                 double angleTo = j * angleStep;
                 double xTo = centerX + radius * Math.cos(angleTo);
                 double yTo = centerY + radius * Math.sin(angleTo);
@@ -81,28 +80,36 @@ public class AdjListGraphController {
     }
 
     private void randomize(int n) throws GraphException, ListException {
-        adj = new AdjacencyListGraph(counter);
-        for (int i = 0; i < 10; i++) {
-            adj.addVertex(util.Utility.getAlphabet());
-            // weight.setWeight(util.Utility.random(0,50));
+        adj = new AdjacencyListGraph(n);
+        for (int i = 0; i < n; i++) {
+            char a = util.Utility.getAlphabet();
+            if (i==0){
+                adj.addVertex(a);
+            }else{
+                if (!adj.containsVertex(a)){
+                    adj.addVertex(a);
+                }else{
+                    i--;
+                }
+            }
         }
-        for (int i = 0; i < 10; i++) {
-            int vertexIndex = util.Utility.random(0,9);
-            int vertexIndex2 = util.Utility.random(0,9);
-            if (vertexIndex != vertexIndex2) {
-                adj.addEdge(adj.getVertex(vertexIndex).data, adj.getVertex(vertexIndex2).data);
-                //adj.addWeight(adj.vertexList[vertexIndex].data, adj.vertexList[vertexIndex2].data,weight);
+        for (int i = 0; i < n; i++) {
+            int vertexIndex = util.Utility.random(9);
+            int vertexIndex2 = util.Utility.random(9);
+            int peso = util.Utility.random(99);
+            if (!adj.containsEdge(adj.getVertex(vertexIndex2).data,adj.getVertex(vertexIndex).data)) {
+                adj.addEdgeAndWeight(adj.getVertex(vertexIndex2).data, adj.getVertex(vertexIndex).data, peso);
+                //System.out.println(vertexIndex+", "+vertexIndex2); //prueba
             }
             if (!adj.containsEdge(adj.getVertex(i).data,adj.getVertex(vertexIndex).data)) {
-                adj.addEdge(adj.getVertex(i).data, adj.getVertex(i).data);
-
+                adj.addEdgeAndWeight(adj.getVertex(i).data, adj.getVertex(i).data, peso);
+                //System.out.println(vertexIndex+", "+vertexIndex2); //prueba
             }
         }
     }
 
     private void drawAdjList(int k, double x, double y, double levelWidth) throws GraphException, ListException {
         Vertex vertex = adj.getVertex(k);
-        //Gabriel y Blanca
         if (vertex != null) {
             // Dibujar las conexiones con los nodos hijos primero
             if (vertex != null) {
