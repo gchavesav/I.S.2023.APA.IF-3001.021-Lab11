@@ -70,7 +70,7 @@ public class AdjacencyMatrixGraphController
         // Dibujar las conexiones entre los vértices
         for (int k = 0; k < numVertices; k++) {
             for (int j = 0; j < numVertices; j++) {
-                if (matrixGraph.containsEdge(matrixGraph.vertexList[k].data,matrixGraph.vertexList[j].data)) {
+                if (matrixGraph.containsEdge(matrixGraph.vertexList[k].data, matrixGraph.vertexList[j].data)) {
                     double angleTo = j * angleStep;
                     double xTo = centerX + radius * Math.cos(angleTo);
                     double yTo = centerY + radius * Math.sin(angleTo);
@@ -81,7 +81,19 @@ public class AdjacencyMatrixGraphController
                             xTo,
                             yTo
                     );
+
                     connection.setStroke(Color.BLACK);
+                    connection.setStrokeWidth(1.5);
+
+                    connection.setOnMouseEntered(event -> {
+                        connection.setStroke(Color.RED);
+                        connection.setStrokeWidth(6.0); // Set the desired thickness
+                    });
+
+                    connection.setOnMouseExited(event -> {
+                        connection.setStroke(Color.BLACK);
+                        connection.setStrokeWidth(1.5); // Set the default thickness
+                    });
 
                     graf.getChildren().add(connection);
                 }
@@ -119,6 +131,7 @@ public class AdjacencyMatrixGraphController
     }
 
     public void toStringOnAction(ActionEvent actionEvent) {
+        textareaInfo.setText(matrixGraph.toString());
     }
 
     public void containsEdgeOnAction(ActionEvent actionEvent) {
