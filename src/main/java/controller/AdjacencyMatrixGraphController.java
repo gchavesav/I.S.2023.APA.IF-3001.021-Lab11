@@ -87,12 +87,12 @@ public class AdjacencyMatrixGraphController
 
                     connection.setOnMouseEntered(event -> {
                         connection.setStroke(Color.RED);
-                        connection.setStrokeWidth(6.0); // Set the desired thickness
+                        connection.setStrokeWidth(6.0);
                     });
 
                     connection.setOnMouseExited(event -> {
                         connection.setStroke(Color.BLACK);
-                        connection.setStrokeWidth(1.5); // Set the default thickness
+                        connection.setStrokeWidth(1.5);
                     });
 
                     graf.getChildren().add(connection);
