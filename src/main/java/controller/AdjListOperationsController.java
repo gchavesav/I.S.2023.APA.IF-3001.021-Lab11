@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -67,15 +68,49 @@ public class AdjListOperationsController
     }
 
     @FXML
-    void removeVertexOnAction(ActionEvent event) {
+    void removeVertexOnAction(ActionEvent event) throws GraphException, ListException {
+        removeVertex();
+    }
 
+    private void removeVertex() throws GraphException, ListException {
+        char element = util.Utility.getAlphabet();
+        while (!adjacencyListGraph.containsVertex(element)){
+            element = util.Utility.getAlphabet();
+        }
+        removeEdgeFromList(element);
+        adjacencyListGraph.removeVertex(element);
+        dataTextArea.setText(adjacencyListGraph.toString());
+        drawGraph();
+    }
+
+    public void removeEdgeFromList(char c){
+        for (char i = 'A'; i <= 'Z'; i++) {
+            String edge = c + Character.toString(i);
+            String invertedEdge = Character.toString(i) + c;
+            try {
+                if (adjacencyListGraph.containsVertex(c) && adjacencyListGraph.containsVertex(i)) {
+                    adjacencyListGraph.removeEdge(c, i);
+                    adjacencyListGraph.removeEdge(i, c);
+                }
+            } catch (GraphException | ListException e) {
+                throw new RuntimeException(e);
+            }
+            listOfEdges.remove(edge);
+            listOfEdges.remove(invertedEdge);
+        }
     }
 
     private void addVertex(){
         char c = util.Utility.getAlphabet();
         try {
+            if (adjacencyListGraph.size() >= 26){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText(null);
+                alert.setContentText("No se pueden agregar más vértices");
+                alert.showAndWait();
+                return;
+            }
             if (!adjacencyListGraph.isEmpty()){
-                adjacencyListGraph.addVertex(c);
                 while (adjacencyListGraph.containsVertex(c)){
                     c = util.Utility.getAlphabet();
                 }
@@ -98,8 +133,7 @@ public class AdjListOperationsController
                     if (!adjacencyListGraph.containsVertex(letter)) adjacencyListGraph.addVertex(letter);
                     else i--;
             }
-
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < 5; i++) {
                 addEdge();
             }
 
@@ -110,6 +144,15 @@ public class AdjListOperationsController
         dataTextArea.setText(adjacencyListGraph.toString());
     }
 
+    public int calcularMaxEdges(int nodes){
+        int sum = 0;
+        int sum1 = nodes-1;
+        while (sum1 >= 0){
+            sum += sum1--;
+        }
+        return sum;
+    }
+
     private void addEdge(){
         int a = 0;
         int b = 0;
@@ -118,6 +161,13 @@ public class AdjListOperationsController
         String dataList;
         String dataListInverted;
         try {
+            if (listOfEdges.size() >= calcularMaxEdges(adjacencyListGraph.size())){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText(null);
+                alert.setContentText("No se pueden agregar más Aristas");
+                alert.showAndWait();
+                return;
+            }
             do {
                 a = util.Utility.random(0, adjacencyListGraph.size());
                 b = util.Utility.random(0, adjacencyListGraph.size());
@@ -185,9 +235,10 @@ public class AdjListOperationsController
         double centerX = base.getPrefWidth()/2;
 
         for (int i = 0; i < n; i++) {
-            String edges = listOfEdges.get(i);
-            int a = adjacencyListGraph.indexOf(listOfEdges.get(i).charAt(0));
-            int b = adjacencyListGraph.indexOf(listOfEdges.get(i).charAt(1));
+            char vA = listOfEdges.get(i).charAt(0);
+            char vB = listOfEdges.get(i).charAt(1);
+            int a = adjacencyListGraph.indexOf(vA);
+            int b = adjacencyListGraph.indexOf(vB);
             Circle nodoA = circles[a];
             Circle nodoB = circles[b];
 
@@ -199,8 +250,22 @@ public class AdjListOperationsController
             Line line = new Line(startX, startY, endX, endY);
             line.setStroke(Color.BLACK);
             line.setStrokeWidth(3);
-            line.setOnMouseEntered(this::onMouseEntered);
-            line.setOnMouseExited(this::onMouseExited);
+
+            Tooltip tooltip = new Tooltip("Vertice entre los nodos " + vA + " y " + vB);
+            Tooltip.install(line, tooltip);
+            tooltip.setFont(Font.font("Arial", FontWeight.BOLD, 20));
+
+            line.setOnMouseEntered(event -> {
+                tooltip.show(base, event.getScreenX(), event.getScreenY() + 10);
+                line.setStroke(Color.RED);
+                line.setStrokeWidth(6);
+            });
+
+            line.setOnMouseExited(event -> {
+                tooltip.hide();
+                line.setStroke(Color.BLACK);
+                line.setStrokeWidth(3);
+            });
             this.base.getChildren().add(line);
         }
     }

@@ -114,7 +114,7 @@ public class Utility {
         int cont=0;
         for(char i='A';i<='Z';i++)
             alfabeto[cont++] = i;
-        return alfabeto[(int) (Math.random() * 25 - 1)];
+        return alfabeto[(int) (Math.random() * 27 - 1)];
     }
 
     public static int maxArray(int[] a) {
