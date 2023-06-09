@@ -1,4 +1,7 @@
 package util;
+import Objetos.Place;
+import domain.Vertex;
+import domain.list.SinglyLinkedList;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -91,6 +94,15 @@ public class Utility {
                 Character ch1 = (Character)a; Character ch2 = (Character)b;
                 return ch1.compareTo(ch2)<0? -1 :
                         ch1.compareTo(ch2)>0? 1 : 0;
+            case "Place":
+                Place p1 = (Place) a; Place p2 = (Place) b;
+                return p1.toString().compareToIgnoreCase(p2.toString())<0?-1:
+                        p1.toString().compareToIgnoreCase(p2.toString())>0?1:0;
+            case "Vertex":
+                Vertex v1= (Vertex) a;
+                Vertex v2= (Vertex) b;
+                return v1.data.toString().compareToIgnoreCase(v2.data.toString())<0?-1:
+                       v1.data.toString().compareToIgnoreCase(v2.data.toString())>0? 1: 0;
         }
         return 2; //Unknown
     }
@@ -106,6 +118,8 @@ public class Utility {
         if(a instanceof Integer&&b instanceof Integer) return "Integer";
         if(a instanceof String&&b instanceof String) return "String";
         if(a instanceof Character&&b instanceof Character) return "Character";
+        if(a instanceof Place&&b instanceof Place) return "Place";
+        if(a instanceof Vertex&&b instanceof Vertex) return "Vertex";
         return "Unknown"; //desconocido
     }
 
@@ -157,6 +171,13 @@ public class Utility {
 
         }
         return result;
+    }
+    public static String getPlace() {
+        String list[] = {"Cartago", "Heredia", "San Jose", "Guanacaste", "Puntarenas",
+                "Limon", "Alajuela", "Puerto Viejo", "Palmares", "Orotina",
+                "Nicoya", "El coco", "Jacó", "Sixaola", "Quepos",
+                "Turrialba", "Liberia", "Paraiso", "Orosi", "El Roble"};
+        return list[random(19)];
     }
 
 }
