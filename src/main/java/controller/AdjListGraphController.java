@@ -129,20 +129,22 @@ public class AdjListGraphController {
 
     @javafx.fxml.FXML
     void containsEdgeOnAction(ActionEvent event) {
-        interactive1 = util.FXUtility.dialog("Edge Contains","Contains: ");
+        interactive1 = util.FXUtility.dialog("Edge","Contains: ");
         interactive1.showAndWait();
-        int value1 = Integer.parseInt(interactive1.getResult());
-        this.alert=util.FXUtility.alert("Edge Contains","Contains: ");
+        String s1 = String.valueOf(interactive1.getResult());
+        Character c1= s1.charAt(0);
+        this.alert=util.FXUtility.alert("Edge","Contains: ");
         alert.setAlertType(Alert.AlertType.INFORMATION);
 
-        interactive2 = util.FXUtility.dialog("Edge Contains","Contains: ");
+        interactive2 = util.FXUtility.dialog("Edge ","Contains: ");
         interactive2.showAndWait();
-        int value2 = Integer.parseInt(interactive2.getResult());
-        this.alert=util.FXUtility.alert("Edge Contains","Contains: ");
+        String s2= String.valueOf(interactive1.getResult());
+        Character c2= s2.charAt(0);
+        this.alert=util.FXUtility.alert("Edge","Is Edge?: ");
         alert.setAlertType(Alert.AlertType.INFORMATION);
 
         try {
-            alert.setContentText(String.valueOf(adj.containsEdge(value1, value2)));
+            alert.setContentText(String.valueOf(adj.containsEdge(c1, c2)));
             alert.showAndWait();
         } catch (GraphException e) {
             throw new RuntimeException(e);
