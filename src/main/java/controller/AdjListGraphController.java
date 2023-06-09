@@ -55,7 +55,7 @@ public class AdjListGraphController {
 
             for (int j = 0; j < noVertexs; j++) {
                 if (adj.containsVertex(adj.getVertex(i))&&adj.containsVertex(adj.getVertex(j))){
-                    System.out.println( i+" "+j);
+                    //System.out.println( i+" "+j);
                     if (adj.containsEdge(adj.getVertex(i), adj.getVertex(j))){
 
 
@@ -132,14 +132,16 @@ public class AdjListGraphController {
         interactive1 = util.FXUtility.dialog("Edge","Contains?: ");
         interactive1.showAndWait();
 
-        String c1 = String.valueOf(interactive1.getResult());
+        String s1 = String.valueOf(interactive1.getResult());
+        Character c1= s1.charAt(0);
         this.alert=util.FXUtility.alert("Edge","Contains?: ");
         alert.setAlertType(Alert.AlertType.INFORMATION);
 
         interactive2 = util.FXUtility.dialog("Edge","Contains?: ");
         interactive2.showAndWait();
-        String c2 = String.valueOf(interactive2.getResult());
-        this.alert=util.FXUtility.alert("Edge","Contains?: ");
+        String s2 = String.valueOf(interactive2.getResult());
+        Character c2= s2.charAt(0);
+        this.alert=util.FXUtility.alert("Edge","Is there an edge?: ");
         alert.setAlertType(Alert.AlertType.INFORMATION);
 
         try {
@@ -156,7 +158,8 @@ public class AdjListGraphController {
     void containsVertexOnAction(ActionEvent event) throws GraphException, ListException {
         interactive1 = util.FXUtility.dialog("Vertex","Contains: ");
         interactive1.showAndWait();
-        String c1 = String.valueOf(interactive1.getResult());
+        String s1 = String.valueOf(interactive1.getResult());
+        Character c1= s1.charAt(0);
         this.alert=util.FXUtility.alert("Vertex ","Contains: ");
         alert.setAlertType(Alert.AlertType.INFORMATION);
         try {
@@ -167,7 +170,6 @@ public class AdjListGraphController {
         } catch (ListException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     @FXML
