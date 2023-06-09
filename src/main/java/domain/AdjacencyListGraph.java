@@ -42,6 +42,14 @@ public class AdjacencyListGraph implements Graph{
 
     @Override
     public boolean containsVertex(Object element) throws GraphException, ListException {
+        if(counter==0){
+            throw new GraphException("Adjacency List Graph is Empty");
+        }
+        for (int i = 0; i < counter; i++) {
+            if(util.Utility.compare(vertexList[i].data,element)==0){
+                return true;
+            }
+        }
         return false;
     }
 
@@ -216,6 +224,7 @@ public class AdjacencyListGraph implements Graph{
                 // obtiene uno
                 vertexList[index2].setVisited(true); // lo marca
                 info+=vertexList[index2].data+", ";
+                System.out.println(info); //prueba
                 queue.enQueue(index2); // lo encola
             }
         }
