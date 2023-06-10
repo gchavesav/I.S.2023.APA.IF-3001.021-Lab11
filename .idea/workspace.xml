@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f25a36c0-8173-4fd8-b182-e2db3536dd32" name="Changes" comment="">
+    <list default="true" id="f25a36c0-8173-4fd8-b182-e2db3536dd32" name="Changes" comment="Fxml, initialize, randomize con error de interfaz">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/AdjacencyListGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/AdjacencyListGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/AdjacencyMatrixGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/AdjacencyMatrixGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/Graph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/GraphException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/GraphException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/Vertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/Vertex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/list/ListException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/list/ListException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/queue/QueueException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/queue/QueueException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/stack/StackException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/stack/StackException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/AdjacencyMatrixGraphController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AdjacencyMatrixGraphController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ucr/lab/HelloController.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,16 +19,28 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="dev_Alvaro_C27507" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="workspaceImportEnabled" value="true" />
@@ -54,11 +60,17 @@
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/XPC/IdeaProjects/I.S.2023.APA.IF-3001.021-Lab10&quot;
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\XPC\IdeaProjects\I.S.2023.APA.IF-3001.021-Lab11\src\main\resources\ucr\lab" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="ucr.lab" />
+      <recent name="controller" />
       <recent name="domain" />
     </key>
   </component>
@@ -86,9 +98,50 @@
       <option name="presentableId" value="Default" />
       <updated>1686013649922</updated>
     </task>
+    <task id="LOCAL-00001" summary="Hello aplication(button AdjencyMatrixGraph)">
+      <created>1686277898343</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1686277898343</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Fxml, initialize, randomize con error de interfaz">
+      <created>1686284941463</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1686284941463</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/dev_Josue_C20973" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Hello aplication(button AdjencyMatrixGraph)" />
+    <MESSAGE value="Fxml, initialize, randomize con error de interfaz" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fxml, initialize, randomize con error de interfaz" />
   </component>
 </project>

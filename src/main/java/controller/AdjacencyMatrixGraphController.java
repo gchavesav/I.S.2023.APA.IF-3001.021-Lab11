@@ -42,9 +42,9 @@ public class AdjacencyMatrixGraphController
     }
 
     private void drawMatrixGraph() throws ListException, GraphException {
-        double centerX = lienzo.getWidth() / 2;
-        double centerY = lienzo.getHeight() / 2;
-        double radius = Math.min(centerX, centerY) - 250;
+        double centerX = lienzo.getWidth() / 25;
+        double centerY = lienzo.getHeight() /25;
+        double radius = Math.min(centerX, centerY) - 200;
 
         int numVertices = matrixGraph.size();
         double angleStep = 2 * Math.PI / numVertices;
