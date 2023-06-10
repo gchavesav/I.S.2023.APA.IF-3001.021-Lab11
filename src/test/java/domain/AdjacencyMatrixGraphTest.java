@@ -53,15 +53,8 @@ class AdjacencyMatrixGraphTest {
             graph.removeVertex("E");
             graph.removeVertex("G");
 
-
-
-
-//            graph.removeEdge("azul","café");
-//            graph.removeEdge("rojo","morado");
-//            graph.removeEdge();
-            System.out.println(graph.toString());
-
             //4.f Sebastián Monge C04973
+            System.out.println(graph.toString());
 
         } catch (GraphException  | StackException |QueueException |ListException e ) {
             throw new RuntimeException(e);
