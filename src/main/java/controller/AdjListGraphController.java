@@ -1,9 +1,7 @@
 package controller;
 
 import domain.AdjacencyListGraph;
-import domain.AdjacencyMatrixGraph;
 import domain.GraphException;
-import domain.Vertex;
 import domain.list.ListException;
 import domain.queue.QueueException;
 import domain.stack.StackException;
