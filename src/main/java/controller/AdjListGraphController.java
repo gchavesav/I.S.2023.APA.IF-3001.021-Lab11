@@ -98,7 +98,7 @@ public class AdjListGraphController {
         for (int i = 0; i < n; i++) {
             int vertexIndex = util.Utility.random(9);
             int vertexIndex2 = util.Utility.random(9);
-            int peso = util.Utility.random(99);
+            int peso = util.Utility.random(0,50);
             if (!adj.containsEdge(adj.getVertex(vertexIndex2).data,adj.getVertex(vertexIndex).data)) {
                 adj.addEdgeAndWeight(adj.getVertex(vertexIndex2).data, adj.getVertex(vertexIndex).data, peso);
                 //System.out.println(vertexIndex+", "+vertexIndex2); //prueba
