@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f25a36c0-8173-4fd8-b182-e2db3536dd32" name="Changes" comment="">
+    <list default="true" id="f25a36c0-8173-4fd8-b182-e2db3536dd32" name="Changes" comment="Fxml, initialize, randomize con error de interfaz">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/AdjacencyListGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/AdjacencyListGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/AdjacencyMatrixGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/AdjacencyMatrixGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/Graph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/GraphException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/GraphException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/Vertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/Vertex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/list/ListException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/list/ListException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/queue/QueueException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/queue/QueueException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/stack/StackException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/stack/StackException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/AdjacencyMatrixGraphController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AdjacencyMatrixGraphController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ucr/lab/HelloController.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +41,12 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="workspaceImportEnabled" value="true" />
@@ -85,6 +85,8 @@
       <recent name="domain" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="ucr.lab" />
+      <recent name="controller" />
       <recent name="domain" />
     </key>
   </component>
@@ -164,6 +166,21 @@
       <updated>1686013649922</updated>
       <workItem from="1686264379606" duration="4947000" />
     </task>
+    <task id="LOCAL-00001" summary="Hello aplication(button AdjencyMatrixGraph)">
+      <created>1686277898343</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1686277898343</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Fxml, initialize, randomize con error de interfaz">
+      <created>1686284941463</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1686284941463</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,5 +188,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Hello aplication(button AdjencyMatrixGraph)" />
+    <MESSAGE value="Fxml, initialize, randomize con error de interfaz" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fxml, initialize, randomize con error de interfaz" />
   </component>
 </project>
