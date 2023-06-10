@@ -41,6 +41,24 @@ public class HelloController {
     }
 
     @FXML
+    void adjListGraphOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void adjMatrixGraphOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void listOperationsOnAction(ActionEvent event) {
+        loadPage("adjListOperations.fxml");
+    }
+
+    @FXML
+    void matrixOperationsOnAction(ActionEvent event) {
+
+    }
     void adjacencyMatrixGraphOnAction(ActionEvent event) {loadPage("adjacencyMatrixGraph.fxml");
 
     }

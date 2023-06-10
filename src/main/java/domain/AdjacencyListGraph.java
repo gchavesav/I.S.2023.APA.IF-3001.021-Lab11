@@ -14,6 +14,7 @@ public class AdjacencyListGraph implements Graph{
     private LinkedStack stack;
     private LinkedQueue queue;
     private Object[][] edgesWeights;
+  
     public AdjacencyListGraph(int n) {
         if(n<=0) System.exit(-1); //sale con error
         this.n = n;
@@ -45,11 +46,11 @@ public class AdjacencyListGraph implements Graph{
 
     @Override
     public boolean containsVertex(Object element) throws GraphException, ListException {
-        if(counter==0){
+        if (isEmpty()) {
             throw new GraphException("Adjacency List Graph is Empty");
         }
         for (int i = 0; i < counter; i++) {
-            if(util.Utility.compare(vertexList[i].data,element)==0){
+            if (util.Utility.compare(vertexList[i].data, element)==0) {
                 return true;
             }
         }
@@ -96,7 +97,7 @@ public class AdjacencyListGraph implements Graph{
         }
     }
 
-    private int indexOf(Object value) {
+    public int indexOf(Object value) {
         for (int i = 0; i < counter; i++) {
             if(util.Utility.compare(vertexList[i].data, value)==0) return i;
         }
