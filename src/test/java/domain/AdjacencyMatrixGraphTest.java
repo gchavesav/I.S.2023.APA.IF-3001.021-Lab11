@@ -1,6 +1,8 @@
 package domain;
 
 import domain.list.ListException;
+import domain.queue.QueueException;
+import domain.stack.StackException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -9,10 +11,10 @@ class AdjacencyMatrixGraphTest {
 
     @Test
     void test() {
-        //a
+        //4.a
         AdjacencyMatrixGraph graph = new AdjacencyMatrixGraph(8);
         try {
-            //b
+            //4.b
             graph.addVertex("A");
             graph.addVertex("B");
             graph.addVertex("C");
@@ -28,16 +30,40 @@ class AdjacencyMatrixGraphTest {
             graph.addEdgeAndWeight("E", "F", "café");
             graph.addEdgeAndWeight("F", "G", "rojo");
             graph.addEdgeAndWeight("G", "H", "morado");
-            //c
+            //4.c
             System.out.println(graph.toString());
 
-            //d
-            //e
-            //f
+            //4.d Sebastián Monge C04973
+            System.out.println("\n-- dfs--");
+            System.out.println(graph.dfs());
+            System.out.println("\n-- bfs--");
+            System.out.println(graph.bfs());
 
-        } catch (GraphException e) {
-            throw new RuntimeException(e);
-        } catch (ListException e) {
+            //4.e Sebastián Monge C04973
+            System.out.println("\nRemoving Vertex: C,E,G with his edges and weights" );
+
+            graph.removeEdge("C","B");
+            graph.removeEdge("C","D");
+            graph.removeEdge("E","A");
+            graph.removeEdge("E","F");
+            graph.removeEdge("G","F");
+            graph.removeEdge("G","H");
+
+            graph.removeVertex("C");
+            graph.removeVertex("E");
+            graph.removeVertex("G");
+
+
+
+
+//            graph.removeEdge("azul","café");
+//            graph.removeEdge("rojo","morado");
+//            graph.removeEdge();
+            System.out.println(graph.toString());
+
+            //4.f Sebastián Monge C04973
+
+        } catch (GraphException  | StackException |QueueException |ListException e ) {
             throw new RuntimeException(e);
         }
 
