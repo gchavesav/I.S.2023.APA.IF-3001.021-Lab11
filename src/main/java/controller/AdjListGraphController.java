@@ -56,21 +56,18 @@ public class AdjListGraphController {
             double x = centerX + radius * Math.cos(angle);
             double y = centerY + radius * Math.sin(angle);
 
+            if (1==0){}
             for (int j = 0; j < noVertexs; j++) {
-                if (adj.containsVertex(adj.getVertex(i))&&adj.containsVertex(adj.getVertex(j))){
-                    System.out.println( i+" "+j);
-                    if (adj.containsEdge(adj.getVertex(i), adj.getVertex(j))){
+                if(j <= i){
+                    if (adj.containsEdge(adj.getVertex(i).data, adj.getVertex(j).data)){
+                        double angleTo = j * angleStep;
+                        double xTo = centerX + radius * Math.cos(angleTo);
+                        double yTo = centerY + radius * Math.sin(angleTo);
 
+                        Line line = new Line(x, y, xTo+10, yTo+10);
+                        graphPane.getChildren().add(line);
                     }
                 }
-
-                double angleTo = j * angleStep;
-                double xTo = centerX + radius * Math.cos(angleTo);
-                double yTo = centerY + radius * Math.sin(angleTo);
-
-                Line line = new Line(x, y, xTo+10, yTo+10);
-                graphPane.getChildren().add(line);
-
             }
 
             Circle vertex = new Circle(x, y, 25);
@@ -132,20 +129,22 @@ public class AdjListGraphController {
 
     @javafx.fxml.FXML
     void containsEdgeOnAction(ActionEvent event) {
-        interactive1 = util.FXUtility.dialog("Edge Contains","Contains: ");
+        interactive1 = util.FXUtility.dialog("Edge","Contains: ");
         interactive1.showAndWait();
-        int value1 = Integer.parseInt(interactive1.getResult());
-        this.alert=util.FXUtility.alert("Edge Contains","Contains: ");
+        String s1 = String.valueOf(interactive1.getResult());
+        Character c1= s1.charAt(0);
+        this.alert=util.FXUtility.alert("Edge","Contains: ");
         alert.setAlertType(Alert.AlertType.INFORMATION);
 
-        interactive2 = util.FXUtility.dialog("Edge Contains","Contains: ");
+        interactive2 = util.FXUtility.dialog("Edge ","Contains: ");
         interactive2.showAndWait();
-        int value2 = Integer.parseInt(interactive2.getResult());
-        this.alert=util.FXUtility.alert("Edge Contains","Contains: ");
+        String s2= String.valueOf(interactive1.getResult());
+        Character c2= s2.charAt(0);
+        this.alert=util.FXUtility.alert("Edge","Is Edge?: ");
         alert.setAlertType(Alert.AlertType.INFORMATION);
 
         try {
-            alert.setContentText(String.valueOf(adj.containsEdge(value1, value2)));
+            alert.setContentText(String.valueOf(adj.containsEdge(c1, c2)));
             alert.showAndWait();
         } catch (GraphException e) {
             throw new RuntimeException(e);
@@ -158,24 +157,24 @@ public class AdjListGraphController {
     void containsVertexOnAction(ActionEvent event) throws GraphException, ListException {
         interactive1 = util.FXUtility.dialog("Vertex","Contains: ");
         interactive1.showAndWait();
-        int value = Integer.parseInt(interactive1.getResult());
+        String s1 = String.valueOf(interactive1.getResult());
+        Character c1= s1.charAt(0);
         this.alert=util.FXUtility.alert("Vertex ","Contains: ");
         alert.setAlertType(Alert.AlertType.INFORMATION);
         try {
-            alert.setContentText(String.valueOf(adj.containsVertex(value)));
+            alert.setContentText(String.valueOf(adj.containsVertex(c1)));
             alert.showAndWait();
         } catch (GraphException e) {
             throw new RuntimeException(e);
         } catch (ListException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     @FXML
     void dfsTourOnAction(ActionEvent event) {
         try {
-            String result = "ADJACENCY LIST GRAPH...\n "+
+            String result = "ADJACENCY LIST GRAPH...\n"+
                     "Recorrido DFS: \n"+adj.dfs();
             listGraphTextArea.setText(result);
         } catch (GraphException e) {
@@ -201,7 +200,6 @@ public class AdjListGraphController {
 
     @FXML
     void toStringOnAction(ActionEvent event) {
-        String result = "ADJACENCY LIST GRAPH CONTENT...\n "+adj.toString();
-        listGraphTextArea.setText(result);
+        listGraphTextArea.setText(adj.toString());
     }
 }
