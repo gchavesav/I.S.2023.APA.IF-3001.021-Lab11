@@ -18,4 +18,8 @@ public class Vertex {
     public void setVisited(boolean visited) {
         this.visited = visited;
     }
+
+    public Object getData() {
+        return data;
+    }
 }
