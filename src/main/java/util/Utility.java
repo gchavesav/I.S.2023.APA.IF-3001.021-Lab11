@@ -1,4 +1,6 @@
 package util;
+import domain.EdgeWeight;
+import domain.Vertex;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -91,6 +93,11 @@ public class Utility {
                 Character ch1 = (Character)a; Character ch2 = (Character)b;
                 return ch1.compareTo(ch2)<0? -1 :
                         ch1.compareTo(ch2)>0? 1 : 0;
+            case "EdgeWeight":
+                EdgeWeight ar1 = (EdgeWeight)a; EdgeWeight ar2 = (EdgeWeight)b;
+                Character v1 = (Character) ar1.getEdge(); Character v2 = (Character) ar2.getEdge();
+                return v1.compareTo(v2)<0? -1 :
+                        v1.compareTo(v2)>0? 1 : 0;
         }
         return 2; //Unknown
     }
@@ -106,6 +113,7 @@ public class Utility {
         if(a instanceof Integer&&b instanceof Integer) return "Integer";
         if(a instanceof String&&b instanceof String) return "String";
         if(a instanceof Character&&b instanceof Character) return "Character";
+        if(a instanceof EdgeWeight &&b instanceof EdgeWeight) return "EdgeWeight";
         return "Unknown"; //desconocido
     }
 

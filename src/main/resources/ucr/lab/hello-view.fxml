@@ -7,36 +7,21 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane fx:id="bp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="716.0" prefWidth="1192.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HelloController">
+<BorderPane fx:id="bp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1444.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HelloController">
    <left>
-      <VBox prefHeight="716.0" prefWidth="310.0" style="-fx-background-color: #0D1824;" BorderPane.alignment="CENTER">
+      <VBox prefHeight="798.0" prefWidth="295.0" style="-fx-background-color: #0D1824;" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onAction="#Home" prefHeight="62.0" prefWidth="272.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Home" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#Home" prefHeight="62.0" prefWidth="298.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Home" textFill="WHITE">
                <font>
                   <Font name="Arial" size="30.0" />
                </font>
             </Button>
-            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#adjMatrixGraphOnAction" prefHeight="62.0" prefWidth="272.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Adj Matrix Graph" textFill="WHITE">
+            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#adjacencyMatrixGraphOnAction" prefHeight="62.0" prefWidth="295.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Adjacency Matrix Graph" textFill="WHITE">
                <font>
-                  <Font name="Arial" size="30.0" />
+                  <Font name="Arial" size="21.0" />
                </font>
             </Button>
-            <Button layoutX="10.0" layoutY="134.0" mnemonicParsing="false" onAction="#adjListGraphOnAction" prefHeight="62.0" prefWidth="271.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Adj List Graph" textFill="WHITE">
-               <font>
-                  <Font name="Arial" size="30.0" />
-               </font>
-            </Button>
-            <Button layoutX="10.0" layoutY="135.0" mnemonicParsing="false" onAction="#matrixOperationsOnAction" prefHeight="62.0" prefWidth="283.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Matrix Operations" textFill="WHITE">
-               <font>
-                  <Font name="Arial" size="30.0" />
-               </font>
-            </Button>
-            <Button layoutX="10.0" layoutY="196.0" mnemonicParsing="false" onAction="#listOperationsOnAction" prefHeight="62.0" prefWidth="272.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="List Operations" textFill="WHITE">
-               <font>
-                  <Font name="Arial" size="30.0" />
-               </font>
-            </Button>
-            <Button layoutX="10.0" layoutY="196.0" mnemonicParsing="false" onAction="#Exit" prefHeight="62.0" prefWidth="273.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Exit" textFill="WHITE">
+            <Button layoutX="10.0" layoutY="196.0" mnemonicParsing="false" onAction="#Exit" prefHeight="62.0" prefWidth="297.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Exit" textFill="WHITE">
                <font>
                   <Font name="Arial" size="30.0" />
                </font>
@@ -45,9 +30,9 @@
       </VBox>
    </left>
    <center>
-      <AnchorPane fx:id="ap" prefHeight="694.0" prefWidth="994.0" style="-fx-background-color: #141428;" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="ap" prefHeight="798.0" prefWidth="1057.0" style="-fx-background-color: #141428;" BorderPane.alignment="CENTER">
          <children>
-            <Text fx:id="txtMessage" fill="#f7f7f7" layoutX="1.0" layoutY="373.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Laboratory No. 11" textAlignment="CENTER" wrappingWidth="958.7493286132812">
+            <Text fx:id="txtMessage" fill="#f7f7f7" layoutX="7.0" layoutY="355.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Laboratory No. 10" textAlignment="CENTER" wrappingWidth="1145.149169921875">
                <font>
                   <Font name="Arial" size="40.0" />
                </font>

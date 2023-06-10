@@ -10,15 +10,16 @@ import ucr.lab.HelloApplication;
 
 import java.io.IOException;
 
-public class HelloController
-{
-    @javafx.fxml.FXML
-    private BorderPane bp;
-    @javafx.fxml.FXML
-    private AnchorPane ap;
-    @javafx.fxml.FXML
-    private Text txtMessage;
+public class HelloController {
 
+    @FXML
+    private AnchorPane ap;
+
+    @FXML
+    private BorderPane bp;
+
+    @FXML
+    private Text txtMessage;
 
     private void loadPage(String page) {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(page));
@@ -28,9 +29,9 @@ public class HelloController
             throw new RuntimeException(e);
         }
     }
+
     @FXML
-    void Exit(ActionEvent event) {
-        System.exit(0);
+    void Exit(ActionEvent event) {System.exit(0);
     }
 
     @FXML
@@ -58,4 +59,8 @@ public class HelloController
     void matrixOperationsOnAction(ActionEvent event) {
 
     }
+    void adjacencyMatrixGraphOnAction(ActionEvent event) {loadPage("adjacencyMatrixGraph.fxml");
+
+    }
+
 }
