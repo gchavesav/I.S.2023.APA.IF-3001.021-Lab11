@@ -8,7 +8,7 @@ import domain.stack.StackException;
 
 public class AdjacencyMatrixGraph implements Graph{
     private int n; //tam maximo de vertices para el grafo
-    private Vertex vertexList[]; //lista de vertices
+    public Vertex[] vertexList; //lista de vertices
     private Object adjacencyMatrix[][];
     private int counter; //me dice el num de vertices agregados
     private LinkedStack stack;
